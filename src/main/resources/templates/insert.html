@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gJllsgVzZz0VZHIy+D+2X0FEPbl5ilbqOJMi6jrv3J/3gP1cQxveFhpfssZOp8C4" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+ <style>
+  .sid {
+    padding: 5px 10px; /* Adjust padding to make the button smaller */
+    font-size: 12px; /* Adjust font size to make the button text smaller */
+    margin-left:900px;
+    margin-right:600px;
+  }
+</style>
+</head>
+<body>
+
+	<div class="col-md-4">
+        <form action="/updat" >
+          <button type="submit" class="btn btn-secondary btn-block sid">Update</button>
+        </form>
+      </div>
+      
+      <div class="col-md-4">
+        <form th:action="@{/delete}" method="Get">
+          <button type="submit" class="btn btn-danger btn-block sid">Delete</button>
+        </form>
+      </div>
+      
+      <div class="col-md-4">
+        <form action="/logout" >
+          <button type="submit" class="btn btn-secondary btn-block sid">Log Out</button>
+        </form>
+      </div> 
+  <div class="container">
+    <h1>Insertion Form</h1>
+     <form th:action="@{/add}" id="studentForm" method="post"   th:onsubmit="return insertStudent()"> 
+ <!--  <form id="studentForm" method="post">  -->
+      <div class="form-group">
+        <label for="s_name">Scheme Name :</label>
+        <input type="text" class="form-control" id="sname" name="sname" required>
+      </div>
+      <div class="form-group">
+        <label for="s_age">Maximum Age Limit :</label>
+        <input type="number" class="form-control" id="s_age_max" name="s_age_max" required>
+      </div> 
+      
+       <div class="form-group">
+        <label for="s_age">Minimun Age Limit :</label>
+        <input type="number" class="form-control" id="s_age_min" name="s_age_min" required>
+      </div> 
+      <div class="form-group">
+        <label for="s_income">Annual Income :</label>
+        <input type="number" class="form-control" id="s_income" name="s_income" required>
+      </div>
+      <div class="form-group">
+        <label for="s_link">Scheme Link :</label>
+        <input type="text" class="form-control" id="s_link" name="s_link" required>
+      </div>
+      
+      <div class="form-group">   
+      <label for="cat">Scheme Department :</label>
+            <select id="s_department" name="s_department" required>
+                <option selected>health</option>
+                <option>education</option>  
+                <option>agriculture</option>
+                <option>insurance</option>      
+                <option>financial inclusion</option>    
+                <option>housing</option>           
+            </select>
+      </div>
+      
+      <div class="form-group">
+      <label for="Dept">Gender:</label>
+            <select id="s_gender"    name="s_gender" required>
+                <option selected>male</option>
+                <option>female</option>
+                 <option>both</option>
+            </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="cat">Category:</label>
+            <select id="s_caste" name="s_caste" required>
+                <option selected>OPEN</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>OBC</option>
+                <option>VJNT</option>
+            </select>       
+      </div>
+      
+       <button  class="btn btn-danger" >Submit Data</button> 
+      
+    <!--   <button type="button" class="btn btn-primary" th:onclick="'window.location.href=\'/add\'' "  >Insert</button> -->
+      
+   <!--    <button type="button" class="btn btn-primary" th:onclick="'window.location.href=\'/add\'' "  >Insert</button>
+      <button type="button" class="btn btn-success" th:onclick="@{/update}">Update</button>
+      <button type="button" class="btn btn-danger" th:onclick="@{/delete}">Delete</button>
+    --> 
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Your custom script for handling operations -->
+  <script>
+    function insertStudent() {
+      // Write your insert logic here
+      
+      var a=document.getElementById("sname").value;
+      var b=document.getElementById("s_link").value;
+      var c=document.getElementById("s_department").value;
+      var d=document.getElementById("s_age_max").value;
+      var g=document.getElementById("s_age_min").value;
+      var e=document.getElementById("s_income").value;
+      var f=document.getElementById("s_gender").value;
+      var h=document.getElementById("s_caste").value;
+     
+      
+      
+      if(a=="" || b=="" || c==null || d=="" || e==""  || g=="" ||f==null ||h==null){
+    	  alert('please enter all the value.');
+    	  return false;
+      }else{
+    	  alert('Insert operation performed.');
+      }
+      return true;
+     
+    }
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-mzr+WYklHJ+Pn5WVaIaGlfnoUyuT1+8ux9TlFhB8E57lKoRY63fdZdIpj5QIVIf/" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+

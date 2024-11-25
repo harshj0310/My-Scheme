@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button and Text Field Example</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form th:action="@{/del} "   onsubmit="return deleteStudent()">
+    <h1>Deletion form</h1>
+    <label for="s_name">Enter the name of the scheme which you want to delete:</label>
+    <input type="text" id="sname" name="sname" placeholder="Scheme name" required><br><br>
+    <button type="submit">Delete data</button>
+  </form>
+  <script>
+  
+  function deleteStudent(){
+      // Write your insert logic here
+      
+      var a=document.getElementById("sname").value;
+        
+     
+    	  alert('Delete operation performed.');
+      return true;
+     
+    }
+  </script>
+</body>
+</html>
+ 
+
+
+
+
+<!--  
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button and Text Field Example</title>
+</head>
+<body>
+  <form th:action="@{/del} " >
+  <h1>Deletion form</h1>
+    <label for="s_name">Enter the name of the scheme which you want to delete:</label>
+    <input type="text" id="sname" name="sname"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
+
+-->

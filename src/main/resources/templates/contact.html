@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Basic styling for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e66464;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ede8e1;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .page-background {
+            background-color: #867f7f;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .contact-info img {
+            margin-right: 10px;
+        }
+        .contact-info span {
+            font-size: 16px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-background">
+        <div class="container content">
+        <form action=""    method="post"  th:object="${user}">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or query, please feel free to contact us using the contact information below:</p>
+            
+            <div class="contact-info">
+                <img src="phone_icon.png" alt="Phone Icon" width="30">
+                <span>+123-456-7890</span>
+            </div>
+            <div class="contact-info">
+                <img src="email_icon.png" alt="Email Icon" width="30">
+                <span>example@example.com</span>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Updation Form</h1>
+    <h2>Information will be change according to scheme name</h2>
+     <form th:action="@{/up}" id="studentForm"   onsubmit="return updateStudent()"> 
+ <!--  <form id="studentForm" method="post">  -->
+      <div class="form-group">
+        <label for="s_name">Scheme Name :</label>
+        <input type="text" class="form-control" id="s_name" name="sname" required>
+      </div>
+      <div class="form-group">
+        <label for="s_age">Maximum Age Limit :</label>
+        <input type="number" class="form-control" id="s_age_max" name="s_age_max" required>
+      </div> 
+      
+       <div class="form-group">
+        <label for="s_age">Minimun Age Limit :</label>
+        <input type="number" class="form-control" id="s_age_min" name="s_age_min" required>
+      </div> 
+      <div class="form-group">
+        <label for="s_income">Annual Income :</label>
+        <input type="number" class="form-control" id="s_income" name="s_income" required>
+      </div>
+      <div class="form-group">
+        <label for="s_link">Scheme Link :</label>
+        <input type="text" class="form-control" id="s_link" name="s_link" required>
+      </div>
+       <div class="form-group">   
+      <label for="cat">Scheme Department :</label>
+            <select id="s_department" name="s_department" required>
+                
+                 <option selected>health</option>
+                <option>education</option>  
+                <option>agriculture</option>
+                <option>insurance</option>      
+                <option>financial inclusion</option>    
+                <option>housing</option>           
+            </select>
+      </div>
+      
+       <div class="form-group">
+      <label for="Dept">Gender:</label>
+            <select id="s_gender"    name="s_gender" required>
+                
+                <option selected>male</option>
+                <option>female</option>
+                 <option>both</option>
+            </select>
+      </div>
+     <div class="form-group">
+        <label for="cat">Category:</label>
+            <select id="s_caste" name="s_caste" required>
+                <option selected>OPEN</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>OBC</option>
+                <option>VJNT</option>
+            </select>       
+      </div>
+      
+       <button  class="btn btn-danger" >Submit Data</button> 
+      
+    <!--   <button type="button" class="btn btn-primary" th:onclick="'window.location.href=\'/add\'' "  >Insert</button> -->
+      
+   <!--    <button type="button" class="btn btn-primary" th:onclick="'window.location.href=\'/add\'' "  >Insert</button>
+      <button type="button" class="btn btn-success" th:onclick="@{/update}">Update</button>
+      <button type="button" class="btn btn-danger" th:onclick="@{/delete}">Delete</button>
+    --> 
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Your custom script for handling operations -->
+  <script>
+   
+    function updateStudent() {
+      // Write your update logic here
+    	var a=document.getElementById("s_name").value;
+      var b=document.getElementById("s_link").value;
+      var c=document.getElementById("s_department").value;
+      var d=document.getElementById("s_age_max").value;
+      var g=document.getElementById("s_age_min").value;
+      var e=document.getElementById("s_income").value;
+      var f=document.getElementById("s_gender").value;
+      var h=document.getElementById("s_caste").value;
+      
+        
+        
+        if(a=="" || b=="" || c==null || d=="" || e=="" || g=="" || f==null|| h==null){
+      	  alert('please enter all the value.')
+      	  return false;
+        }else{
+        	alert('Update operation performed.');
+        }
+        return true;
+      
+    }
+
+   
+  </script>
+</body>
+</html>
+
+
+
